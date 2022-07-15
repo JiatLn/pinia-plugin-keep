@@ -1,7 +1,7 @@
 {
   "name": "pinia-plugin-keep",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "packageManager": "pnpm@7.5.1",
   "description": "🍍 A pinia persistent plugin",
   "author": {
@@ -52,6 +52,9 @@
     "start": "esno src/index.ts",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "pinia": "^2.0.16"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.2",
