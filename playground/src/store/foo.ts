@@ -12,10 +12,16 @@ export const useFoo = defineStore('foo', () => {
     aSet.value = new Set()
   }
 
+  function login() {
+    aMap.value.set('date', new Date())
+    aMap.value.set('username', 'cx33')
+  }
+
   return {
     aNum,
     aMap,
     aSet,
+    login,
     resetStore,
   }
 })
