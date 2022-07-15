@@ -6,6 +6,8 @@ export function useStorage() {
     for (const [k, v] of Object.entries(val)) {
       if (v instanceof Map)
         obj[`__MAP__${k}`] = strMapToJson(v)
+      else if (v instanceof Set)
+        obj[`__SET__${k}`] = Array.from(v)
       else
         obj[k] = v
     }
@@ -22,6 +24,11 @@ export function useStorage() {
         if (k.startsWith('__MAP__')) {
           const reallyKey = k.replace('__MAP__', '')
           pvl[reallyKey] = jsonToStrMap(v as string)
+          delete pvl[k]
+        }
+        else if (k.startsWith('__SET__')) {
+          const reallyKey = k.replace('__SET__', '')
+          pvl[reallyKey] = new Set(v as string[])
           delete pvl[k]
         }
       }
