@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import PiniaLogo from './components/PiniaLogo.vue'
-import { useFoo } from './store/foo'
+import { useBar } from './store'
 
-const store = useFoo()
+const store = useBar()
 const { aSet, aNum } = storeToRefs(store)
 </script>
 
@@ -21,8 +21,17 @@ const { aSet, aNum } = storeToRefs(store)
       <button @click="store.login()">
         login
       </button>
-      <button @click="store.resetStore()">
-        reset
+      <button @click="store.shuffleArr()">
+        shuffleArr
+      </button>
+      <button @click="store.$reset()">
+        reset store
+      </button>
+      <button @click="store.$resetPath('aArr')">
+        reset aArr
+      </button>
+      <button @click="store.$resetPath('aMap')">
+        reset aMap
       </button>
     </div>
     <pre>store: {{ store }}</pre>
