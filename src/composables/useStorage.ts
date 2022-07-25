@@ -1,6 +1,6 @@
 import { jsonToStrMap, strMapToJson } from '../utils'
 
-export function useStorage() {
+export function useStorage(storageType: 'local' | 'session') {
   const setItem = <T extends Record<string, any>>(key: string, val: T) => {
     const obj = Object.create(null)
     for (const [k, v] of Object.entries(val)) {
@@ -11,10 +11,30 @@ export function useStorage() {
       else
         obj[k] = v
     }
-    localStorage.setItem(key, JSON.stringify(obj))
+    switch (storageType) {
+      case 'local': {
+        localStorage.setItem(key, JSON.stringify(obj))
+        break
+      }
+      case 'session': {
+        sessionStorage.setItem(key, JSON.stringify(obj))
+        break
+      }
+    }
   }
   const getItem = <T>(key: string, defaultVal?: T) => {
-    const vl = localStorage.getItem(key)
+    let vl
+    switch (storageType) {
+      case 'local': {
+        vl = localStorage.getItem(key)
+        break
+      }
+      case 'session': {
+        vl = sessionStorage.getItem(key)
+        break
+      }
+    }
+
     if (!vl)
       return defaultVal
 
@@ -40,7 +60,16 @@ export function useStorage() {
   }
 
   const delItem = (key: string) => {
-    localStorage.removeItem(key)
+    switch (storageType) {
+      case 'local': {
+        localStorage.removeItem(key)
+        break
+      }
+      case 'session': {
+        sessionStorage.removeItem(key)
+        break
+      }
+    }
   }
 
   return {

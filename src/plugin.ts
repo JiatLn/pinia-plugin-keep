@@ -2,8 +2,8 @@ import { get, has, set } from 'lodash-es'
 import type { PiniaPluginContext } from 'pinia'
 import { useStorage } from './composables/useStorage'
 
-export function keepPiniaPlugin(context: PiniaPluginContext) {
-  const { setItem, getItem } = useStorage()
+export function keepPiniaPlugin(context: PiniaPluginContext, type?: 'local' | 'session') {
+  const { setItem, getItem } = useStorage(type || 'local')
   const { store } = context
   store.$subscribe((_mutation: any, state: any) => {
     setItem(store.$id, { ...state })

@@ -7,7 +7,9 @@ import App from './App.vue'
 const app = createApp(App)
 const pinia = createPinia()
 
-pinia.use(keepPiniaPlugin).use(resetPluginPinia)
+pinia.use(keepPiniaPlugin)
+// pinia.use(_ => keepPiniaPlugin(_, 'session'))
+pinia.use(resetPluginPinia)
 
 app.use(pinia)
 

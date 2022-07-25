@@ -40,6 +40,13 @@ app.mount('#app')
 
 You only need to install the keepPiniaPlugin in `main.ts`, like the  above `Usage`. And the plugin will keep your state in the localStorage when you use the store.
 
+The default config is persistence the state to localStorage. You could change the config in the `keepPiniaPlugin` function, like the following:
+The default
+```typescript
+pinia.use(_ => keepPiniaPlugin(_, 'session'))
+```
+So, the state will be kept in the sessionStorage.
+
 - resetPluginPinia
 
 > Resets the store to its initial state with a nested value pass the keypath as the argument.
