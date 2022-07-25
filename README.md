@@ -18,19 +18,71 @@ npm i pinia-plugin-keep
 ```typescript
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { keepPiniaPlugin } from 'pinia-plugin-keep' // <-- import the plugin
+// ↓ import the plugin
+import { keepPiniaPlugin, resetPluginPinia } from 'pinia-plugin-keep' 
 
 import App from './App.vue'
 
 const app = createApp(App)
 const pinia = createPinia()
 
-pinia.use(keepPiniaPlugin) // <-- use the plugin
+pinia.use(keepPiniaPlugin) // <- use the plugin
+pinia.use(resetPluginPinia) // <- use the plugin
 
 app.use(pinia)
 
 app.mount('#app')
 ```
+
+## Description
+
+- keepPiniaPlugin
+
+> Persistence your state to localStorage.
+
+You only need to install the keepPiniaPlugin in `main.ts`, like the  above `Usage`. And the plugin will keep your state in the localStorage when you use the store.
+
+- resetPluginPinia
+
+> Resets the store to its initial state with a nested value pass the keypath as the argument.
+
+When you install this plugin, your store will register a function call `$resetPath`, and you could use it to reset the value with state initial.
+
+**TIPS: `$resetPath` is options api only**
+
+For example:
+
+- userStore.ts
+
+```ts
+import { defineStore } from 'pinia'
+
+export const useUserStore = defineStore({
+  id: 'user',
+  state: () => {
+    return {
+      token: '',
+      userInfo: {
+        age: 18,
+        name: 'cx33'
+      }
+    }
+  },
+  // getters
+  // ...
+  // actions
+  // ...
+})
+```
+- anywhere
+```ts
+import useUserStore from './userStore'
+
+const store = useUserStore()
+
+store.$resetPath('userInfo.age') // <- here is equal to store.$state.userInfo.age = 18
+```
+
 
 ## License
 
