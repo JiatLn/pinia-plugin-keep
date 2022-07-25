@@ -2,9 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/pinia-plugin-keep?color=a1b858&label=)](https://www.npmjs.com/package/pinia-plugin-keep)
 
-## Description
-
-🍍 A pinia persistent plugin.
+🍍🍍 Not only a pinia plugin.
 
 ## Install
 
