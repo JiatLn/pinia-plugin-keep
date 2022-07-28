@@ -89,6 +89,21 @@ const store = useUserStore()
 store.$resetPath('userInfo.age') // <- here is equal to store.$state.userInfo.age = 18
 ```
 
+## TypeScript
+
+> When adding new properties to stores, you should also extend the PiniaCustomProperties interface. 
+
+You need to create a file like `pinia.d.ts` in your project. And add the following code:
+
+```ts
+import 'pinia'
+
+declare module 'pinia' {
+  export interface PiniaCustomProperties {
+    $resetPath: (path: string) => void
+  }
+}
+```
 
 ## License
 
