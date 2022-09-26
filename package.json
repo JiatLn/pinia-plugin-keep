@@ -56,23 +56,23 @@
   },
   "dependencies": {
     "lodash-es": "^4.17.21",
-    "pinia": "^2.0.16",
-    "vue": "^3.2.37"
+    "pinia": "^2.0.22",
+    "vue": "^3.2.39"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.25.2",
-    "@antfu/ni": "^0.17.2",
+    "@antfu/eslint-config": "^0.27.0",
+    "@antfu/ni": "^0.18.0",
     "@antfu/utils": "^0.5.2",
     "@types/lodash-es": "^4.17.6",
-    "@types/node": "^18.0.6",
+    "@types/node": "^18.7.21",
     "bumpp": "^8.2.1",
-    "eslint": "^8.20.0",
+    "eslint": "^8.24.0",
     "esno": "^0.16.3",
-    "pnpm": "^7.5.2",
+    "pnpm": "^7.12.2",
     "rimraf": "^3.0.2",
-    "typescript": "^4.7.4",
-    "unbuild": "^0.7.4",
-    "vite": "^3.0.2",
-    "vitest": "^0.18.1"
+    "typescript": "^4.8.3",
+    "unbuild": "^0.8.11",
+    "vite": "^3.1.3",
+    "vitest": "^0.23.4"
   }
 }
