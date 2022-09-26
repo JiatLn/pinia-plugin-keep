@@ -4,34 +4,6 @@
 
 🍍🍍 Not only a pinia plugin.
 
-## Install
-
-```bash
-npm i pinia-plugin-keep
-```
-## Usage
-
-- main.ts
-
-```typescript
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-// ↓ import the plugin
-import { keepPiniaPlugin, resetPluginPinia } from 'pinia-plugin-keep' 
-
-import App from './App.vue'
-
-const app = createApp(App)
-const pinia = createPinia()
-
-pinia.use(keepPiniaPlugin) // <- use the plugin
-pinia.use(resetPluginPinia) // <- use the plugin
-
-app.use(pinia)
-
-app.mount('#app')
-```
-
 ## Description
 
 - keepPiniaPlugin
@@ -88,6 +60,36 @@ const store = useUserStore()
 
 store.$resetPath('userInfo.age') // <- here is equal to store.$state.userInfo.age = 18
 ```
+
+## Install
+
+```bash
+npm i pinia-plugin-keep
+```
+## Usage
+
+- main.ts
+
+```typescript
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+// ↓ import the plugin
+import { keepPiniaPlugin, resetPluginPinia } from 'pinia-plugin-keep' 
+
+import App from './App.vue'
+
+const app = createApp(App)
+const pinia = createPinia()
+
+pinia.use(keepPiniaPlugin) // <- use the plugin
+pinia.use(resetPluginPinia) // <- use the plugin
+
+app.use(pinia)
+
+app.mount('#app')
+```
+
+
 
 ## TypeScript
 
